@@ -2,13 +2,47 @@
 
 Este sistema operacional tem como objetivo executar em computadores antigos, focado preferencialmente no recorte entre o 386 SX até o Pentium 133, inicialmente suportando maquinas com até 16 MiB de RAM.
 
-# Funcionamento
+# Projeto
 
-Ao iniciar é carregado pela BIOS o estágio 1 do sistema de inicialização, que é responsável por carregar do disco o estágio 2 na posição 0x6000 da memória RAM e executá-lo.
+Para compilar o projeto se deve primeiro seguir os requisítos abaixo, e após instala-los, executar os comandos abaixo:
 
-Executando o estágio 2, este é responsável por abrir o arquivo de configuração na raiz do disco, e carregar o núcleo e uma imagem de disco contendo os módulos para a memória, posteriormente executando o núcleo.
+```sh
+chmod +x configure
+./configure
+make clean
+make run
+```
 
-O Núcleo é responsável por inicializar os Módulos conforme sua ordem de relevancia.
+
+## Requisitos para Desenvolvimento
+
+- Unix-like: macOS, Linux, FreeBSD ou WSL
+- NASM
+- [SmallerC](https://github.com/humbertocsjr/SmallerC)
+- [MinixFS Tool](https://github.com/humbertocsjr/minixfs)
+- DOSBox
+
+## Ferramentas Recomendáveis
+
+- mtools (Suporte a FAT)
+- 86box
+- Visual Code
+
+## Estrutura do Projeto
+
+- **Distro**: Imagens geradas durante a compilação
+- **Incluir**: Pasta global de Include da linguagem C
+- **Nucleo**: Núcleo do Sistema e seus Módulos
+- **Inicial**: Sistema de Inicialização, contendo todos as variações do Estágio 1 e o Estágio 2
+- **Programas**: Programas do BRASIS
+
+## Funcionamento durante a inicialização
+
+- Ao iniciar é carregado pela BIOS o estágio 1 do sistema de inicialização, que é responsável por carregar do disco o estágio 2 na posição 0x6000 da memória RAM e executá-lo.
+
+- Executando o estágio 2, este é responsável por abrir o arquivo de configuração na raiz do disco, e carregar o núcleo e uma imagem de disco contendo os módulos para a memória, posteriormente executando o núcleo.
+
+- O Núcleo é responsável por inicializar os Módulos conforme sua ordem de relevancia.
 
 # Objetivos
 
@@ -28,20 +62,6 @@ O Núcleo é responsável por inicializar os Módulos conforme sua ordem de rele
 | Processador| 386 SX 16 Mhz      | 386 SX 25 Mhz |
 | RAM        | 3 MiB              | 8 MiB       |
 | Disquete   | 3 1/2 - 1.44 MiB   | 3 1/2 - 1.44 MiB |
-
-# Requisitos para Desenvolvimento
-
-- Unix-like: macOS, Linux, FreeBSD ou WSL
-- NASM
-- [SmallerC](https://github.com/humbertocsjr/SmallerC)
-- [MinixFS Tool](https://github.com/humbertocsjr/minixfs)
-- DOSBox
-
-## Recomendável
-
-- mtools (Suporte a FAT)
-- 86box
-- Visual Code
 
 # Extensões de Arquivos
 
