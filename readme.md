@@ -2,6 +2,8 @@
 
 Este sistema operacional tem como objetivo executar em computadores antigos, focado preferencialmente no recorte entre o 386 SX até o Pentium 133, inicialmente suportando maquinas com até 16 MiB de RAM.
 
+Tenho como inspiração alguns projetos modernos de sistema operacional para equipamentos antigos ou mesmo inspirados em sistemas legados como o SymbOS, UZIX, HellenOS, SerenityOS, Haiku.
+
 # Projeto
 
 Para compilar o projeto se deve primeiro seguir os requisítos abaixo, e após instala-los, executar os comandos abaixo:
@@ -13,6 +15,10 @@ make clean
 make run
 ```
 
+## Observações para Desenvolvedores
+
+- **Núcleo e Módulos Controladores**: Sempre observar os BUGS presentes nos processadores, principalmente os que afetam o 386 e 486, pois são difíceis de contornar, um exemplo é no estágio 2 da inicialização, existem varios comandos ```a32 nop``` usados para contornar erros das versões iniciais do 386 que crashavam ao mudar repentinamente de 32 bits para 16 bits.
+
 
 ## Requisitos para Desenvolvimento
 
@@ -20,10 +26,12 @@ make run
 - NASM
 - [SmallerC](https://github.com/humbertocsjr/SmallerC)
 - [MinixFS Tool](https://github.com/humbertocsjr/minixfs)
-- DOSBox
+- DOSBox (No macOS usar a versão do [Homebrew](https://brew.sh))
 
 ## Ferramentas Recomendáveis
 
+- Qemu
+- Bochs com Depuração
 - mtools (Suporte a FAT)
 - 86box
 - Visual Code

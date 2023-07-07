@@ -3,6 +3,11 @@
 #include <stdbool.h>
 #include "Brasis.h"
 
+/*
+ Este gerenciador de memória gerencia localmente os primeiros 16 MiB de RAM
+*/
+
+// 4096 Páginas de 4096 Bytes totalizando 16 MiB
 #define MEMORIA_PAGINASBAIXAS 4096
 #define MEMORIA_PAGINASBAIXAS_B 4096 / 32
 

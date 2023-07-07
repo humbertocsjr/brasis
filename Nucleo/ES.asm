@@ -1,6 +1,7 @@
 bits 32
 cpu 386
 
+; Envia um byte através de uma porta
 global _ES_EscrevaUInt8
 _ES_EscrevaUInt8:
     push ebp
@@ -11,6 +12,7 @@ _ES_EscrevaUInt8:
     pop ebp
     ret
 
+; Envia um word através de uma porta
 global _ES_EscrevaUInt16
 _ES_EscrevaUInt16:
     push ebp
@@ -21,6 +23,8 @@ _ES_EscrevaUInt16:
     pop ebp
     ret
 
+
+; Recebe um byte através de uma porta
 global _ES_LeiaUInt8
 _ES_LeiaUInt8:
     push ebp
@@ -31,6 +35,7 @@ _ES_LeiaUInt8:
     pop ebp
     ret
 
+; Recebe um word através de uma porta
 global _ES_LeiaUInt16
 _ES_LeiaUInt16:
     push ebp
