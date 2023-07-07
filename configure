@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm .make.conf
+sed -e "s/\[ROOT\]/$(pwd | sed 's:[/\\&]:\\&:g')\//g" base.conf > .make.conf

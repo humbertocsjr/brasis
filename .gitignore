@@ -1,0 +1,10 @@
+.make.conf
+*.img
+*.Imagem
+*.Nucleo
+*.bin
+*.o
+*.a
+*.i
+*.map
+*.Modulo
