@@ -7,7 +7,7 @@ romimage: file="/usr/share/bochs/BIOS-bochs-legacy", address=0x00000000, options
 vgaromimage: file="/usr/share/vgabios/vgabios.bin"
 boot: floppy
 floppy_bootsig_check: disabled=1
-floppya: type=1_44, 1_44="Distro/1440.img", status=inserted, write_protected=0
+floppya: type=1_44, 720k="Distro/720.img", status=inserted, write_protected=0
 # no floppyb
 ata0: enabled=true, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14
 ata0-master: type=none

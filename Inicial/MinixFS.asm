@@ -2,8 +2,6 @@
 ; Humberto Costa dos Santos Junior, 2020-2023
 ; 3-Clause BSD license
 
-ConstCabecas: equ 2
-ConstSetoresPorTrilha: equ 18
 
 cpu 8086
 jmp short PreInicio

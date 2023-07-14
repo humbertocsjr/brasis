@@ -1,6 +1,6 @@
 include ../.make.conf
 
-all: 1440.img
+all: 1440.img 720.img 1200.img
 
 
 clean:
@@ -12,7 +12,7 @@ clean:
 	@echo -= Gerando imagem $(@) =-
 	@dd if=/dev/zero of=$(@) bs=1024 count=$(patsubst %.img,%,$(@)) 2>/dev/null
 	@minixfs mkfs $@ -1 -n 30 -s $(patsubst %.img,%,$(@))
-	@dd if=Temp/MinixFS.bin of=$(@)  bs=1024 count=1 conv=notrunc 2>/dev/null
+	@dd if=Temp/MinixFS$(patsubst %.img,%,$(@)).bin of=$(@)  bs=1024 count=1 conv=notrunc 2>/dev/null
 	@minixfs add $@ Temp/Estagio2.bin /BRASIS.Inicial
 	@minixfs add $@ Temp/BRASIS.Nucleo /BRASIS.Nucleo
 	@minixfs add $@ ../Inicial/Inicial.cfg /BRASIS.cfg
