@@ -1,6 +1,6 @@
 include .make.conf
 
-all clean: Distro/Temp
+all clean: Distro/Temp Distro/ISO
 	@$(MAKE) -C Inicial $@
 	@$(MAKE) -C Nucleo $@
 	@$(MAKE) -C Distro $@
@@ -17,3 +17,6 @@ debug_linux: all
 
 Distro/Temp:
 	@mkdir Distro/Temp
+
+Distro/ISO:
+	@mkdir Distro/ISO

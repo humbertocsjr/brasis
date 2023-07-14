@@ -1,12 +1,16 @@
 include ../.make.conf
 
-all: 1440.img 720.img 1200.img
+all: 1440.img 720.img 1200.img cd.iso
 
 
 clean:
 	@-rm Temp/*
 	@-rm *.img
 
+cd.iso: 1440.img $(wildcard Temp/*.bin)  $(wildcard Temp/*.Nucleo) $(wildcard Temp/*.Imagem) $(wildcard Temp/*.Modulo)
+	@echo -= Gerando imagem $(@) =-
+	@cp 1440.img ISO/1440.img
+	@mkisofs -R -o cd.iso -e 1440.img -hide 1440.img ISO
 
 %.img: $(wildcard Temp/*.bin)  $(wildcard Temp/*.Nucleo) $(wildcard Temp/*.Imagem) $(wildcard Temp/*.Modulo)
 	@echo -= Gerando imagem $(@) =-
@@ -18,7 +22,7 @@ clean:
 	@minixfs add $@ ../Inicial/Inicial.cfg /BRASIS.cfg
 	@minixfs add $@ Temp/BRASIS.Imagem /BRASIS.Imagem
 	@minixfs mkdir $@ /Inicial
-	@minixfs add $@ Temp/MinixFS.bin /Inicial/MinixFS.bin
+	@minixfs add $@ Temp/MinixFS$(patsubst %.img,%,$(@)).bin /Inicial/MinixFS$(patsubst %.img,%,$(@)).bin
 	@minixfs add $@ Temp/FAT12.bin /Inicial/FAT12.bin
 	@minixfs add $@ Temp/Estagio2.bin /Inicial/Estagio2.bin
 	@minixfs mkdir $@ /Sistema
