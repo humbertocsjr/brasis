@@ -120,7 +120,7 @@ static bool _Proximo(Status_t * st, struct SisArq_s * sisarq, struct Item_s * it
 
     for (i = 15; i > 0; i--)
     {
-        if((subItem->Nome[i] == ' ') | (subItem->Nome[i] == 0))
+        if((subItem->Nome[i] == ' ') | (subItem->Nome[i] == 0)| (subItem->Nome[i] == '0')| (subItem->Nome[i] == '/'))
         {
             subItem->Nome[i] = 0;
         }

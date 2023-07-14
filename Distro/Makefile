@@ -6,6 +6,7 @@ all: 1440.img 720.img 1200.img cd.iso
 clean:
 	@-rm Temp/*
 	@-rm *.img
+	@-rm *.iso
 
 cd.iso: 1440.img $(wildcard Temp/*.bin)  $(wildcard Temp/*.Nucleo) $(wildcard Temp/*.Imagem) $(wildcard Temp/*.Modulo)
 	@echo -= Gerando imagem $(@) =-
