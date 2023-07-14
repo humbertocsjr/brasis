@@ -3,7 +3,7 @@
 
 #define VERSAO 0
 #define SUBVERSAO 1
-#define REVISAO 0
+#define REVISAO 10
 
 #define VIDEO_TEXTO 0
 #define VIDEO_EGA 1
@@ -13,7 +13,8 @@
 
 #pragma pack(1)
 
-typedef struct BrasisParams_s {
+typedef struct BrasisParams_s 
+{
     uint8_t Assinatura[6];
     uint8_t Versao;
     uint8_t Revisao;

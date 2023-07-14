@@ -3,9 +3,9 @@ include ../../.make.conf
 
 all: BRASIS.Imagem
 
-BRASIS.Imagem: MinixFS.Modulo
+BRASIS.Imagem: MinixFS.Modulo Disquete.Modulo ISADMA.Modulo PS2.Modulo Modulos.cfg
 	@echo -= $@ =-
-	@find *.Modulo | cpio -oH cpio > $@ 2> /dev/null
+	@ar -r $@ *.Modulo Modulos.cfg
 	@cp $@ $(ROOT)Distro/Temp/$@
 
 clean:

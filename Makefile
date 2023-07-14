@@ -9,5 +9,11 @@ all clean: Distro/Temp
 run: all
 	@dosbox -C "boot Distro/1440.img -l A"
 
+debug_macos: all
+	@bochs -q -f bochsmacosx
+
+debug_linux: all
+	@bochs -q -f bochslinux
+
 Distro/Temp:
 	@mkdir Distro/Temp

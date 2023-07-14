@@ -38,5 +38,5 @@ __start:
 section .bss
 ; Pilha do núcleo
 __pilha: 
-resb 8192
+resd 10240
 __pilha_topo:

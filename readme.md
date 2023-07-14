@@ -15,10 +15,28 @@ make clean
 make run
 ```
 
+* **Sempre que compilar em um computador novo, mesmo que copiando a pasta, execute antes o ```./configure``` pois ele gera apontamentos que funcionam apenas na maquina local**
+
+## Depurando no macOS Moderno
+
+Recomendo a utilização do Bochs, porém não recomendo a utilização da versão enviada via HomeBrew por suas limitações, neste caso baixe o código fonte diretamente do site e compile com o comando:
+
+**Copie o arquivo ```configure_bochs_macosx``` do diretorio Extra, para o diretorio do código do Bochs**
+
+```sh
+chmod +x configure_bochs_macosx
+./configure_bochs_macosx  --with-sdl2 --enable-debugger --enable-plugins --enable-cdrom --enable-pci  --enable-show-ips  --enable-x86-64 --enable-fpu --enable-all-optimizations --enable-sb16 --disable-gameport --with-wx
+make
+sudo make install
+```
+
+Ira gerar uma versão com o suporte mínimo de emulação e depuração com suporte as interface SDL2, porém sem suporte a Rede.
+
 ## Observações para Desenvolvedores
 
-- **Núcleo e Módulos Controladores**: Sempre observar os BUGS presentes nos processadores, principalmente os que afetam o 386 e 486, pois são difíceis de contornar, um exemplo é no estágio 2 da inicialização, existem varios comandos ```a32 nop``` usados para contornar erros das versões iniciais do 386 que crashavam ao mudar repentinamente de 32 bits para 16 bits.
+- **Núcleo e Módulos Controladores com código 16/32bits misto**: Sempre observar os BUGS presentes nos processadores, principalmente os que afetam o 386 e 486, pois são difíceis de contornar, um exemplo é no estágio 2 da inicialização, existem varios comandos ```a32 nop``` usados para contornar erros das versões iniciais do 386 que crashavam ao mudar repentinamente de 32 bits para 16 bits.
 
+- Para evitar distorções, a paleta de cores em 8bits, será RGB de 6 Bits e o restante do espaço uma paleta monocromatica, limita um pouco o RGB porém as cores ficam mais fieis ao original RGB ao diminuir a escala.
 
 ## Requisitos para Desenvolvimento
 
@@ -103,7 +121,7 @@ make run
 ### Parciais
 
 - Gerenciador de Memória
-    - Status: Inicializa estruturas e calcula memória livre
+    - Status: Inicializa estruturas, calcula memória livre, e aloca memória em endereçamento fisico
 - Interface de Depuração
     - Status: Emissor de mensagens de inicialização em video texto
 
@@ -133,16 +151,16 @@ make run
 
 ## Núcleo: Modulos Internos
 
+### Completo
+
+- Sistema de Arquivos UNIX Archive (AR) (Usado na inicialização)
+
 ### Parciais
 
 - Sistemas de Arquivos MinixFS (Versões 1 e 2)
     - Status: Implementado suporte a Versão 1 com 30 caracteres de nome
 - Sistemas de Arquivos FAT (Versões 12, 16 e 32)
     - Status: Apenas Primeiro estágio da inicialização em FAT12
-
-### Pendente
-
-- Sistema de Arquivos CPIO (Usado na inicialização)
 
 ## Interface Gráfica
 

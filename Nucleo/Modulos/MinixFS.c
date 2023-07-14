@@ -1,7 +1,7 @@
-#include <stdint.h>
 #include <Modulo.h>
 
-void Modulo(ModuloConfig_t * cfg)
+void Modulo()
 {
-
+    Debug_Escreva("MinixFS");
 }
+

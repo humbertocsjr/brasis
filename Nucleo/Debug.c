@@ -93,6 +93,7 @@ static void _VT_EscrevaC(uint8_t c)
             _VT_X++;
             _VT_Calc();
         }
+        endereco = _VT_Y * 80 + _VT_X;
         _VT_AtualizaCursor(endereco);
     }
 }
@@ -158,6 +159,9 @@ void Debug_Escreva(uint8_t * fmt, ...)
                 break;
             case 'u':
                 Debug_EscrevaUInt(*arg);
+                break;
+            case 's':
+                Debug_EscrevaTexto(*arg);
                 break;
             default:
                 _Debug_EscrevaC(*fmt);
