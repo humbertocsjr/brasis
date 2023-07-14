@@ -1,6 +1,10 @@
 #ifndef BRASIS_H
 #define BRASIS_H
 
+#include <stdio.h>
+#include <stdint.h>
+#include <stdbool.h>
+
 #define VERSAO 0
 #define SUBVERSAO 1
 #define REVISAO 10

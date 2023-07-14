@@ -10,7 +10,7 @@ clean:
 cd.iso: 1440.img $(wildcard Temp/*.bin)  $(wildcard Temp/*.Nucleo) $(wildcard Temp/*.Imagem) $(wildcard Temp/*.Modulo)
 	@echo -= Gerando imagem $(@) =-
 	@cp 1440.img ISO/1440.img
-	@mkisofs -R -o cd.iso -e 1440.img -hide 1440.img ISO
+	@mkisofs -o cd.iso -b 1440.img -hide 1440.img ISO
 
 %.img: $(wildcard Temp/*.bin)  $(wildcard Temp/*.Nucleo) $(wildcard Temp/*.Imagem) $(wildcard Temp/*.Modulo)
 	@echo -= Gerando imagem $(@) =-
