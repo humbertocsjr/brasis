@@ -17,7 +17,23 @@ make run
 
 * **Sempre que compilar em um computador novo, mesmo que copiando a pasta, execute antes o ```./configure``` pois ele gera apontamentos que funcionam apenas na maquina local**
 
-## Depurando no macOS Moderno
+## Depurando
+
+Para depurar basta executar o comando:
+
+- No macOS:
+
+    ```sh
+    make debug_macos
+    ```
+
+- No Linux:
+
+    ```sh
+    make debug_linux
+    ```
+
+### Depurando no macOS Moderno
 
 Recomendo a utilização do Bochs, porém não recomendo a utilização da versão enviada via HomeBrew por suas limitações, neste caso baixe o código fonte diretamente do site e compile com o comando:
 
@@ -45,6 +61,7 @@ Ira gerar uma versão com o suporte mínimo de emulação e depuração com supo
 - [SmallerC](https://github.com/humbertocsjr/SmallerC)
 - [MinixFS Tool](https://github.com/humbertocsjr/minixfs)
 - DOSBox (No macOS usar a versão do [Homebrew](https://brew.sh))
+- Bochs
 
 ## Ferramentas Recomendáveis
 
